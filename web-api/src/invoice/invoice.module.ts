@@ -8,10 +8,11 @@ import { InvoiceController } from './invoice.controller';
 import { InvoiceService } from './invoice.service';
 import { dbConfig, redisConfig } from '../data-source';
 import { BullModule } from '@nestjs/bull';
+import { HelperInvoice } from './helper';
 
 @Module({
   controllers: [InvoiceController],
-  providers: [InvoiceService],
+  providers: [InvoiceService, HelperInvoice],
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forFeature([Client, Log, Company]),

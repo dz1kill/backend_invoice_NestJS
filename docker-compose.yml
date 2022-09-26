@@ -21,27 +21,33 @@ services:
       - ${REDIS_PORT}:${REDIS_PORT}
     command: redis-server --save 20 1 --loglevel warning --requirepass 1234
 
-  # web-api:
-  #   build:
-  #     context: ./web-api
-  #     dockerfile: ./Dockerfile
-  #   restart: always
-  #   command: npm run start:dev
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - ${APP_PORT}:${APP_PORT}
+  web-api:
+    build:
+      context: ./web-api
+      dockerfile: ./Dockerfile
+    restart: always
+    command: npm run start
+    env_file:
+      - .env
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - ./shared/local.json:/web-api/config/local.json
 
-  # worker-pdf:
-  #   build:
-  #     context: ./worker-pdf
-  #     dockerfile: ./Dockerfile
-  #   restart: always
-  #   command: npm run start
+  worker-pdf:
+    build:
+      context: ./worker-pdf
+      dockerfile: ./Dockerfile
+    restart: always
+    command: npm run start
+    volumes:
+      - ./shared/local.json:/worker-pdf/config/local.json
 
-  # worker-email:
-  #   build:
-  #     context: ./worker-email
-  #     dockerfile: ./Dockerfile
-  #   restart: always
-  #   command: npm run start
+  worker-email:
+    build:
+      context: ./worker-email
+      dockerfile: ./Dockerfile
+    restart: always
+    command: npm run start
+    volumes:
+      - ./shared/local.json:/worker-email/config/local.json

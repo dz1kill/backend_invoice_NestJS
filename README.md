@@ -1,7 +1,7 @@
 ## Description
 
 Test backend application "Invoice". A service for generating and sending invoices for payment by e-mail to customers.
-You can copy the code by following the link: https://gitlab.12devs.com/training/shagdai_training_backend/-/tree/develop
+You can copy the code by following the link:
 
 ## Running the app
 
@@ -16,10 +16,10 @@ $ docker-compose up
 # Wait until the server starts.
 
 # Create tables in the database using the "migrations" command:
-$ docker-compose exec web-api npm run migrate:run
+$ docker-compose exec web-api npm run migration:run
 
 # Fill in the tables with the data "seeders" with the command:
-$ docker-compose exec web-api npm run seed:run
+$  ./web-api/scripts/populate-dev.sh
 ```
 
 ## Test

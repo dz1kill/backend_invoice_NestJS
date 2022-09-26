@@ -1,16 +1,16 @@
-export interface Owner {
+export type Owner = {
   firstName: string;
   lastName: string;
   email: string;
   company: string;
   address: string;
   phone: string;
-}
-export interface Task {
+};
+export type Task = {
   taskName: string;
   cost: number;
-}
-export interface ObjectForPDF {
+};
+export type ObjectForPDF = {
   sendEmail: string;
   clientEmail: string;
   name: string;
@@ -22,7 +22,4 @@ export interface ObjectForPDF {
   completedTasks: Task[];
   dateFormatDDMMYYYY: string;
   invoiceId: string;
-}
-export enum JobName {
-  GenerateAndSendInvoice = 'generateAndSendInvoice',
-}
+};

@@ -6,11 +6,13 @@ import { Log } from '../common/entity/Logs';
 import { InvoiceService } from './invoice.service';
 import { Repository } from 'typeorm';
 import { BadRequestException } from '@nestjs/common';
+import { HelperInvoice } from './helper';
 
 describe('The InvoiceService', () => {
   let invoiceService: InvoiceService;
   let client: Repository<Client>;
   let log: Repository<Log>;
+  let helper: HelperInvoice;
   const file = <File[]>[];
   const completedTasks = [
     {
@@ -76,7 +78,7 @@ describe('The InvoiceService', () => {
 
   describe('test getSumm', () => {
     it('return number', async () => {
-      expect(invoiceService.getSumm(completedTasks)).toStrictEqual(42);
+      expect(helper.getSummTask(completedTasks)).toStrictEqual(42);
     });
   });
 

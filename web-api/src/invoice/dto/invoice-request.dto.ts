@@ -34,6 +34,7 @@ export class InvoiceRequestDto {
 
   @ApiProperty({
     required: false,
+    description: 'Only .JPG',
     type: 'file',
     items: {
       type: 'file',

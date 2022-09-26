@@ -1,6 +1,7 @@
 import { InjectQueue, OnGlobalQueueCompleted, Processor } from '@nestjs/bull';
-import { JobName, ObjectForPDF, OwnerInfo } from './interface';
+import { ObjectForPDF, OwnerInfo } from './type';
 import { sendFileToEmailJob } from './jobs/sendFile';
+import { JobName } from './constants';
 
 @Processor('Invoice')
 export class InvoiceSend {
