@@ -1,0 +1,47 @@
+version: "3.1"
+
+volumes:
+  pg_selectel:
+
+services:
+  pg_db:
+    image: postgres:14.1-alpine
+    container_name: postgres
+    env_file:
+      - .env
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+
+  cache_redis:
+    image: redis:6.2-alpine
+    container_name: redis
+    env_file:
+      - .env
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}
+    command: redis-server --save 20 1 --loglevel warning --requirepass 1234
+
+  # web-api:
+  #   build:
+  #     context: ./web-api
+  #     dockerfile: ./Dockerfile
+  #   restart: always
+  #   command: npm run start:dev
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - ${APP_PORT}:${APP_PORT}
+
+  # worker-pdf:
+  #   build:
+  #     context: ./worker-pdf
+  #     dockerfile: ./Dockerfile
+  #   restart: always
+  #   command: npm run start
+
+  # worker-email:
+  #   build:
+  #     context: ./worker-email
+  #     dockerfile: ./Dockerfile
+  #   restart: always
+  #   command: npm run start
