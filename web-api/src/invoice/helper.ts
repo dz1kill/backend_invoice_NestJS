@@ -1,5 +1,4 @@
 import { Task } from './dto/invoice-request.dto';
-
 export class HelperInvoice {
   getSummTask(tasks: Task[]) {
     return tasks.reduce((accum: number, element: { cost: number }) => {
@@ -7,8 +6,7 @@ export class HelperInvoice {
       return accum;
     }, 0);
   }
-  getFormatedDate() {
-    const dateNow: Date = new Date();
+  getFormatedDate(dateNow: Date) {
     return (
       dateNow.getDate() +
       '.' +

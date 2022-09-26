@@ -46,7 +46,13 @@ describe('The InvoiceService', () => {
     const moduleRef = await Test.createTestingModule({
       providers: [
         InvoiceService,
-
+        {
+          provide: HelperInvoice,
+          useValue: {
+            getSummTask: () => {},
+            getFormatedDate: () => {},
+          },
+        },
         {
           provide: getRepositoryToken(Client),
           useValue: {
@@ -68,6 +74,7 @@ describe('The InvoiceService', () => {
         },
       ],
     }).compile();
+    helper = await moduleRef.resolve(HelperInvoice);
     invoiceService = await moduleRef.resolve(InvoiceService);
     client = await moduleRef.resolve(getRepositoryToken(Client));
     log = await moduleRef.resolve(getRepositoryToken(Log));
@@ -76,19 +83,10 @@ describe('The InvoiceService', () => {
     jest.resetAllMocks();
   });
 
-  describe('test getSumm', () => {
-    it('return number', async () => {
-      expect(helper.getSummTask(completedTasks)).toStrictEqual(42);
-    });
-  });
-
   describe('test generate', () => {
     it('return message ', async () => {
       const clientEmail = 'example@example.com';
       const sendEmail = 'example@example.com';
-      jest.spyOn(client, 'findOneBy');
-      jest.spyOn(log, 'save');
-
       expect(
         await invoiceService.generate(
           file,

@@ -39,7 +39,8 @@ export class InvoiceService {
     const { firstName, lastName } = client;
     const { name, address, scope } = client.company;
     const summCost: number = this.helper.getSummTask(completedTasks);
-    const dateFormatDDMMYYYY = this.helper.getFormatedDate();
+    const dateNow: Date = new Date();
+    const dateFormatDDMMYYYY = this.helper.getFormatedDate(dateNow);
     await this.log.save({
       email: clientEmail,
       firstName,
