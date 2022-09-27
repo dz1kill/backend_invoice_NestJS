@@ -1,4 +1,5 @@
 import { Task } from './dto/invoice-request.dto';
+
 export class HelperInvoice {
   getSummTask(tasks: Task[]) {
     return tasks.reduce((accum: number, element: { cost: number }) => {

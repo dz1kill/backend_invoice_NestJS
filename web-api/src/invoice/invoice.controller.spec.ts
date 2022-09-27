@@ -1,4 +1,3 @@
-import { BadRequestException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { InvoiceParamDto, InvoiceRequestDto } from './dto/invoice-request.dto';
 import { InvoiceController } from './invoice.controller';
@@ -19,7 +18,7 @@ describe('InvoiceController', () => {
         {
           provide: InvoiceService,
           useValue: {
-            generate: async () => result,
+            dataPreparation: async () => result,
           },
         },
       ],
@@ -33,7 +32,7 @@ describe('InvoiceController', () => {
   });
 
   it('list: return array', async () => {
-    jest.spyOn(invoiceService, 'generate');
+    jest.spyOn(invoiceService, 'dataPreparation');
     expect(
       await invoiceController.generate(
         invoiceRequestDto,
@@ -43,7 +42,7 @@ describe('InvoiceController', () => {
     ).toStrictEqual(result);
   });
   it('list: return error', async () => {
-    jest.spyOn(invoiceService, 'generate').mockImplementation(() => {
+    jest.spyOn(invoiceService, 'dataPreparation').mockImplementation(() => {
       throw new Error();
     });
     expect(

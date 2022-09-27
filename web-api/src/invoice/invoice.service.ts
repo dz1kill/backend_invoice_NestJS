@@ -21,7 +21,7 @@ export class InvoiceService {
     private readonly helper: HelperInvoice,
   ) {}
 
-  async generate(
+  async dataPreparation(
     file: File[],
     clientEmail: string,
     completedTasks: Task[],

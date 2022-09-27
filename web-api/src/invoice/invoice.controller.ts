@@ -28,7 +28,7 @@ export class InvoiceController {
     @Query() invoiceParamDto: InvoiceParamDto,
   ) {
     try {
-      return await this.invoiceService.generate(
+      return await this.invoiceService.dataPreparation(
         file,
         invoiceRequestDto.email,
         invoiceRequestDto.completedTasks,

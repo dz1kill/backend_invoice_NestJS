@@ -88,7 +88,7 @@ describe('The InvoiceService', () => {
       const clientEmail = 'example@example.com';
       const sendEmail = 'example@example.com';
       expect(
-        await invoiceService.generate(
+        await invoiceService.dataPreparation(
           file,
           clientEmail,
           completedTasks,
@@ -101,7 +101,7 @@ describe('The InvoiceService', () => {
       const sendEmail = 'example@example.com';
       jest.spyOn(client, 'findOneBy').mockReturnValue(null);
       try {
-        await invoiceService.generate(
+        await invoiceService.dataPreparation(
           file,
           clientEmail,
           completedTasks,
