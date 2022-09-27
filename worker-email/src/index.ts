@@ -1,5 +1,5 @@
 import { InjectQueue, OnGlobalQueueCompleted, Processor } from '@nestjs/bull';
-import { ObjectForPDF, OwnerInfo } from './type';
+import { ObjectForPDF, OwnerInfo } from './types';
 import { sendFileToEmailJob } from './jobs/sendFile';
 import { JobName } from './constants';
 

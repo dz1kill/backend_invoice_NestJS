@@ -1,5 +1,5 @@
 import * as PDFDocument from 'pdfkit';
-import { ObjectForPDF, Owner } from '../type';
+import { ObjectForPDF, Owner } from './types';
 
 export async function generatePDF(
   objectForPDF: ObjectForPDF,

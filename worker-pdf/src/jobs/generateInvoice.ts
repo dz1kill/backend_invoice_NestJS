@@ -1,6 +1,6 @@
 import * as PDFDocument from 'pdfkit';
-import { ObjectForPDF, Owner } from '../type';
-import { generatePDF } from '../utils/generatePDF';
+import { ObjectForPDF, Owner } from '../types';
+import { generatePDF } from '../utils.generatePDF';
 
 export async function generateInvoiceJob(
   objectForPDF: ObjectForPDF,
