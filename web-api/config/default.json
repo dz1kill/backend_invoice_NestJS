@@ -1,0 +1,22 @@
+{
+  "DBconfig": {
+    "database": "postgres",
+    "username": "postgres",
+    "dialect": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "password": "",
+    "omitNull": true
+  },
+
+  "app": {
+    "port": "3000"
+  },
+
+  "redisConfig": {
+    "host": "localhost",
+    "port": 6379,
+    "password": "",
+    "database": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mailer": {
+    "port": "MAILER_PORT",
+    "host": "MAILER_HOST",
+    "passwordEmail": "EMAIL_PASSWORD"
+  },
+
+  "redisConfig": {
+    "host": "REDIS_HOST",
+    "port": "REDIS_PORT",
+    "password": "REDIS_PASSWORD"
+  }
+}

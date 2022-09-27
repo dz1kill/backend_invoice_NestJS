@@ -1,0 +1,21 @@
+{
+  "DBconfig": {
+    "database": "POSTGRES_DB",
+    "username": "POSTGRES_USER",
+    "dialect": "postgres",
+    "host": "POSTGRES_HOST",
+    "port": "POSTGRES_PORT",
+    "password": "POSTGRES_PASSWORD"
+  },
+
+  "app": {
+    "port": "APP_PORT"
+  },
+
+  "redisConfig": {
+    "host": "REDIS_HOST",
+    "port": "REDIS_PORT",
+    "password": "REDIS_PASSWORD",
+    "database": "REDIS_DB"
+  }
+}

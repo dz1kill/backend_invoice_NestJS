@@ -1,0 +1,12 @@
+{
+  "DBconfig": {
+    "password": ""
+  },
+
+  "redisConfig": {
+    "password": 
+  },
+  "mailer": {
+    "passwordEmail": ""
+  }
+}
